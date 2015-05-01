@@ -2,5 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.02      2015-05-01 12:22:21 -0400
+  - remove accidentally bundled Test-Script
+
 0.01      2015-05-01 12:20:43 -0400
   - initial version
