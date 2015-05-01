@@ -1,0 +1,9 @@
+AnyEvent
+AnyEvent::Open3::Simple
+EV
+File::HomeDir
+File::chdir
+Module::Build
+Path::Class
+Test::More
+URI

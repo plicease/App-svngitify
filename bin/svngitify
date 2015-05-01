@@ -1,0 +1,66 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.010;
+use App::svngitify;
+
+# ABSTRACT: Convert SVN distribution to git repository
+# PODNAME: svngitify
+# VERSION
+
+exit App::svngitify->main(@ARGV);
+
+__END__
+
+=head1 SYNOPSIS
+
+ % svngitify [ -i | --interactive] [ [ -u | --user ] svnuser=gituser ] [ -v | --verbose ] url
+ % svngitify --help
+ % svngitify --version
+
+url may be a traditional fully qualified URL, or a relative or absolute pathname.
+
+=head1 DESCRIPTION
+
+There are lots of HOWTOs on the Interwebs on how to migrate from Subversion
+to git.  I got tired of looking one of these up each time I needed to do it
+and wrote this script to remember the incantations for me.  This is intended
+for a simple one shot, no looking back to Subversion conversion.  If you want
+to make changes with git and push them back to Subversion you should instead
+of course use C<git-svn>.
+
+=head1 OPTIONS
+
+=head2 --interactive | -i
+
+If there are missing users not specified on the command line open the
+user map in a text editor before continuing with the conversion.
+
+=head2 --user | -u
+
+Specify a user mapping.  Can be used multiple times.  Example:
+
+ % svngitify -u plicease='Graham Ollis <plicease@cpan.org>'
+
+=head2 --verbose | -v
+
+Log to stdout, instead of a log file.
+
+=head2 --help | -h
+
+Print help
+
+=head2 --version
+
+Print the version
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<cpangitify>
+
+=back
+
+=cut
