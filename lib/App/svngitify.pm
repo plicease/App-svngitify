@@ -12,7 +12,7 @@ use File::chdir;
 use File::Temp qw( tempdir );
 use AE;
 use AnyEvent::Open3::Simple;
-use File::HomeDir;
+use File::Glob qw( bsd_glob );
 
 # Handy doco:
 # http://john.albin.net/git/convert-subversion-to-git
@@ -191,9 +191,10 @@ sub _log ($)
     {
       my $time = time;
       $filename = file(
-        File::HomeDir->my_dist_data( "App-svngitify", { create => 1 } ),
+        bsd_glob('~/.svngitify'),
         "detailedlog-$time-$$.log",
       );
+      $filename->parent->mkpath(0,0700);
       say "Detailed log: $filename";
       $fh = $filename->opena;
     }
